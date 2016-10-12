@@ -1,5 +1,6 @@
 package be.ciesites.simpletodolist;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         simpleToDoList = (ListView) findViewById(R.id.itemsListView);
 
         list = new ArrayList<String>();
-        list.add("To do 1");
+
 
         adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
 
@@ -61,4 +64,37 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadList();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveList();
+    }
+
+    private void loadList(){
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        list.clear();
+        list.addAll(preferences.getStringSet("list", new HashSet<String>()));
+    }
+
+    private void saveList(){
+
+
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        Set<String> values = new HashSet<>();
+        values.addAll(list);
+        editor.putStringSet("list", values);
+        editor.commit();
+    }
+
+
 }
