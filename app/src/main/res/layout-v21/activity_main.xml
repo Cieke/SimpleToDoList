@@ -12,34 +12,34 @@
 
     >
 
-<LinearLayout
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-
-    android:orientation="vertical"
-    >
-
-    <EditText
+    <LinearLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/itemEditText"
-
-        android:hint="@string/addItemHint"
-
-        />
+        android:layout_height="match_parent"
 
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/itemsListView"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemEditText"
+
+            android:hint="@string/addItemHint"
+
+            />
 
 
-        />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemsListView"
 
-</LinearLayout>
+
+            />
+
+    </LinearLayout>
 
     <ImageButton
 
@@ -52,11 +52,12 @@
         android:layout_marginBottom="@dimen/add_button_margin"
         android:layout_marginEnd="@dimen/add_button_margin"
         android:layout_marginRight="@dimen/add_button_margin"
+
+        android:elevation="@dimen/elevation_high"
         android:background="@drawable/oval"
         android:src="@android:drawable/ic_input_add"
         android:tint="@android:color/white"
-
-
+        android:stateListAnimator="@animator/button_elevation"
         />
-    <!-- to do: add stateListAnimator -->
+    <!-- to do: add src and background for button + tint + animatie -->
 </FrameLayout>

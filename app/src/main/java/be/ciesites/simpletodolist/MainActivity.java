@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     private EditText item;
-    private Button add;
+    private ImageButton add;
     private ListView simpleToDoList;
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         item = (EditText) findViewById(R.id.itemEditText);
 
-        add = (Button) findViewById(R.id.addItemButton);
+        add = (ImageButton) findViewById(R.id.addItemButton);
         simpleToDoList = (ListView) findViewById(R.id.itemsListView);
 
         list = new ArrayList<String>();

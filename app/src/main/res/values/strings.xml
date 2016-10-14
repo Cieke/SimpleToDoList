@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SimpleToDoList</string>
+    <string name="app_name">To Do List</string>
     <string name ="addItemHint">New Item</string>
     <string name="add_item">Add Item</string>
 </resources>
